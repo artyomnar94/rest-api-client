@@ -1,0 +1,25 @@
+{
+    "name": "artyomnar94/restApiClient",
+
+    "type": "yii2-extension",
+
+    "description": "wrapper on yii2-httplcient for work with WP Core API",
+    "keywords": ["yii2", "api", "wrapper", "helper"],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/artyomnar94/restApiClient/issues",
+        "wiki": "https://github.com/artyomnar94/restApiClient/wiki",
+        "source": "https://github.com/artyomnar94/restApiClient"
+    },
+    "authors": [
+        {
+            "name": "Artyom Nar",
+            "email": "artyomnar94@gmail.com"
+        }
+    ],
+
+    "require": {
+        "yiisoft/yii2": "~2.0.0",
+        "yiisoft/yii2-httpclient": "^2.0"
+    }
+}

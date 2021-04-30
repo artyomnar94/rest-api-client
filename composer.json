@@ -1,5 +1,5 @@
 {
-    "name": "artyomnar94/rest-api-client",
+    "name": "artyomnar94/yii2-core-api-client",
 
     "type": "yii2-extension",
 
@@ -8,19 +8,23 @@
     "license": "MIT",
     "minimum-stability": "stable",
     "support": {
-        "issues": "https://github.com/artyomnar94/restApiClient/issues",
-        "wiki": "https://github.com/artyomnar94/restApiClient/wiki",
-        "source": "https://github.com/artyomnar94/restApiClient"
+        "issues": "https://github.com/artyomnar94/yii2-core-api-client/issues",
+        "wiki": "https://github.com/artyomnar94/yii2-core-api-client/wiki",
+        "source": "https://github.com/artyomnar94/yii2-core-api-client"
     },
     "authors": [
         {
-            "name": "Artyom Nar",
+            "name": "Artyom Narmagambetov",
             "email": "artyomnar94@gmail.com"
         }
     ],
-
+    "autoload": {
+        "psr-4": {
+            "CoreApiClient\\": "src/"
+        }
+    },
     "require": {
-        "php": ">=7.0",
+        "php": ">=7.2",
         "yiisoft/yii2": "~2.0.0",
         "yiisoft/yii2-httpclient": "^2.0"
     }

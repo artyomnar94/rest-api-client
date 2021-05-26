@@ -7,6 +7,8 @@ use Yii;
 use yii\httpclient\Client;
 use yii\httpclient\Response;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
+use yii\web\NotFoundHttpException;
 
 /**
  * Class BaseHandler
@@ -77,7 +79,7 @@ class BaseHandler
 	 * @param array $params - GET parameters list
 	 * @return array
 	 * @throws \yii\httpclient\Exception
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 */
 	protected function handleGetRequest(string $method, array $headers, array $params = []): array
 	{
@@ -85,7 +87,7 @@ class BaseHandler
 		if ($response->isOk) {
 			return $response->data;
 		}
-		throw new yii\web\NotFoundHttpException();
+		throw new NotFoundHttpException();
 	}
 
 	/**
@@ -96,7 +98,7 @@ class BaseHandler
 	 * @param array $headers
 	 * @return array
 	 * @throws \yii\httpclient\Exception
-	 * @throws \yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 */
 	protected function handlePutRequest(string $method, Model $model, array $headers): array
 	{
@@ -115,7 +117,7 @@ class BaseHandler
 			return empty($response->data) ? [] : $response->data;
 		}
 		$this->addModelError($response->data, $model);
-		throw new yii\web\UnprocessableEntityHttpException();
+		throw new UnprocessableEntityHttpException();
 	}
 
 	/**

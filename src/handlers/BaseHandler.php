@@ -130,7 +130,7 @@ class BaseHandler
 	{
 		$defaultHeaders = [
 			'ip-address' => Yii::$app->request->userIP,
-			'language' => Yii::$app->language
+			'language' => substr(Yii::$app->language, 0, 2)
 		];
 		if ($this->partnerName) {
 			$defaultHeaders = array_merge($defaultHeaders, ['partner-name' => $this->partnerName]);

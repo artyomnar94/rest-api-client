@@ -3,7 +3,6 @@
 
 namespace CoreApiClient\handlers;
 
-use CoreApiClient\RequestHelper;
 use yii\httpclient\Client;
 use yii\base\Model;
 use yii\web\UnprocessableEntityHttpException;
@@ -35,7 +34,7 @@ class Payment extends BaseHandler
 	 */
 	public function check(Model $model, string $authToken): ?array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/check', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/check', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -46,7 +45,7 @@ class Payment extends BaseHandler
 	 */
 	public function payFromCard(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/pay-from-card', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/pay-from-card', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -57,7 +56,7 @@ class Payment extends BaseHandler
 	 */
 	public function payFromWallet(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/pay-from-wallet', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/pay-from-wallet', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -68,7 +67,7 @@ class Payment extends BaseHandler
 	 */
 	public function payFromMobile(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/pay-from-mobile', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/pay-from-mobile', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -79,7 +78,7 @@ class Payment extends BaseHandler
 	 */
 	public function approvePayFromMobile(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/approve-pay-from-mobile', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/approve-pay-from-mobile', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -90,7 +89,7 @@ class Payment extends BaseHandler
 	 */
 	public function transferFromCard(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/transfer-from-card', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/transfer-from-card', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -101,7 +100,7 @@ class Payment extends BaseHandler
 	 */
 	public function transferToCard(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/transfer-to-card', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/transfer-to-card', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -111,7 +110,7 @@ class Payment extends BaseHandler
 	 */
 	public function debt(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest( self::ENTITY . '/debt', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest( self::ENTITY . '/debt', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -121,7 +120,7 @@ class Payment extends BaseHandler
 	 */
 	public function nativeTransferFromCard(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/native-transfer-from-card', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/native-transfer-from-card', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -131,7 +130,7 @@ class Payment extends BaseHandler
 	 */
 	public function transferToCardContinue(string $authToken, array $params = []): array
 	{
-		return $this->handleGetRequest(self::ENTITY . '/transfer-to-card-continue', RequestHelper::getDefaultHeaders($authToken), $params);
+		return $this->handleGetRequest(self::ENTITY . '/transfer-to-card-continue', $this->getDefaultHeaders($authToken), $params);
 	}
 
 	/**
@@ -141,7 +140,7 @@ class Payment extends BaseHandler
 	 */
 	public function transferToCardComplete(string $authToken, array $params = []): array
 	{
-		return $this->handleGetRequest(self::ENTITY . '/transfer-to-card-complete', RequestHelper::getDefaultHeaders($authToken), $params);
+		return $this->handleGetRequest(self::ENTITY . '/transfer-to-card-complete', $this->getDefaultHeaders($authToken), $params);
 	}
 
 	/**
@@ -151,7 +150,7 @@ class Payment extends BaseHandler
 	 */
 	public function nativeTransferToCard(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/native-transfer-to-card', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/native-transfer-to-card', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -161,7 +160,7 @@ class Payment extends BaseHandler
 	 */
 	public function transferToKazpost(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/transfer-to-kazpost', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/transfer-to-kazpost', $model, $this->getDefaultHeaders($authToken));
 	}
 
 	/**
@@ -172,6 +171,6 @@ class Payment extends BaseHandler
 	 */
 	public function createOperation(Model $model, string $authToken): array
 	{
-		return $this->handlePostRequest(self::ENTITY . '/create-operation', $model, RequestHelper::getDefaultHeaders($authToken));
+		return $this->handlePostRequest(self::ENTITY . '/create-operation', $model, $this->getDefaultHeaders($authToken));
 	}
 }

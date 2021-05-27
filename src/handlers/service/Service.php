@@ -4,7 +4,6 @@
 namespace CoreApiClient\handlers\service;
 
 use CoreApiClient\handlers\BaseHandler;
-use CoreApiClient\RequestHelper;
 use yii\httpclient\Client;
 use yii\base\Model;
 use yii\web\UnprocessableEntityHttpException;
@@ -74,7 +73,7 @@ class Service extends BaseHandler
 	 */
 	public function search(array $params = []): array
 	{
-		return $this->handleGetRequest(self::ENTITY . '/search', RequestHelper::getDefaultHeaders(), $params);
+		return $this->handleGetRequest(self::ENTITY . '/search', $this->getDefaultHeaders(), $params);
 	}
 
 	/**
@@ -86,7 +85,7 @@ class Service extends BaseHandler
 	 */
 	public function commission(string $authToken, string $serviceAttribute, float $amount)
 	{
-		$headers = RequestHelper::getDefaultHeaders($authToken);
+		$headers = $this->getDefaultHeaders($authToken);
 		$response = $this->client->post(self::ENTITY . "/commission/$serviceAttribute", ['amount' => $amount], $headers)->send();
 		if ($response->isOk) {
 			return $response->data;

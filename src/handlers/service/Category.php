@@ -4,7 +4,6 @@
 namespace CoreApiClient\handlers\service;
 
 use CoreApiClient\handlers\BaseHandler;
-use CoreApiClient\RequestHelper;
 use yii\httpclient\Client;
 use yii\base\Model;
 use yii\web\NotFoundHttpException;
@@ -55,6 +54,6 @@ class Category extends BaseHandler
 	 */
 	public function search(array $params = []): array
 	{
-		return $this->handleGetRequest(self::ENTITY . '/search', RequestHelper::getDefaultHeaders(), $params);
+		return $this->handleGetRequest(self::ENTITY . '/search', $this->getDefaultHeaders(), $params);
 	}
 }

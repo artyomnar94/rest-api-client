@@ -208,4 +208,13 @@ class User extends BaseHandler
 	{
 		return $this->profile->getProfileData($authToken);
 	}
+
+	/**
+	 * @param string $authToken
+	 * @return array
+	 */
+	public function getBalance(string $authToken): array
+	{
+		return $this->handleGetRequest('balance', $this->getDefaultHeaders($authToken));
+	}
 }

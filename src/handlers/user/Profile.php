@@ -30,6 +30,6 @@ class Profile extends BaseHandler
 	 */
 	public function getProfileData(string $authToken): array
 	{
-		return $this->handleGetRequest("profile", $this->getDefaultHeaders($authToken));
+		return $this->handleGetRequest('profile', $this->getDefaultHeaders($authToken));
 	}
 }

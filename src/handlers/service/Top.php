@@ -4,7 +4,6 @@
 namespace CoreApiClient\handlers\service;
 
 use CoreApiClient\handlers\BaseHandler;
-use CoreApiClient\RequestHelper;
 use yii\httpclient\Client;
 use yii\base\Model;
 

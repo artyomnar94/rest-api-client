@@ -4,9 +4,9 @@
 namespace CoreApiClient\handlers\service;
 
 use CoreApiClient\handlers\BaseHandler;
-use CoreApiClient\RequestHelper;
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\NotFoundHttpException;
 
 /**
  * Class Field
@@ -14,7 +14,7 @@ use yii\base\Model;
  */
 class Field extends BaseHandler
 {
-	private const ENTITY = 'field';
+	private const ENTITY = 'service-field';
 
 	/**
 	 * Category constructor.
@@ -29,7 +29,7 @@ class Field extends BaseHandler
 
 	/**
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getAll(array $params = []): array
@@ -39,7 +39,7 @@ class Field extends BaseHandler
 
 	/**
 	 * @param string $fieldId
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getOne(string $fieldId): array

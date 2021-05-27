@@ -6,6 +6,7 @@ namespace CoreApiClient\handlers\user;
 use CoreApiClient\handlers\BaseHandler;
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
 
 /**
  * Class Auth
@@ -28,7 +29,7 @@ class Auth extends BaseHandler
 
 	/**
 	 * @param Model $model
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function auth(Model $model): array
@@ -38,7 +39,7 @@ class Auth extends BaseHandler
 
 	/**
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function getIdentity(string $authToken): array
@@ -48,7 +49,7 @@ class Auth extends BaseHandler
 
 	/**
 	 * @param Model $model
-	 * @throws yii\web\UnprocessableEntityHttpExceptionl
+	 * @throws UnprocessableEntityHttpExceptionl
 	 * @return array|null
 	 */
 	public function pseudo(Model $model): array

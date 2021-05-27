@@ -6,6 +6,7 @@ namespace CoreApiClient\handlers\user;
 use CoreApiClient\handlers\BaseHandler;
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
 
 /**
  * Class User
@@ -138,7 +139,7 @@ class User extends BaseHandler
 	/**
 	 * @param string $login
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function nominateSubject(string $login, string $authToken): array
@@ -147,7 +148,7 @@ class User extends BaseHandler
 		if ($response->isOk) {
 			return $response->data;
 		}
-		throw new yii\web\UnprocessableEntityHttpException();
+		throw new UnprocessableEntityHttpException();
 	}
 
 	/**
@@ -197,5 +198,14 @@ class User extends BaseHandler
 	public function resendEmailCode(string $authToken, array $params): bool
 	{
 		return $this->security->resendEmailCode($authToken, $params);
+	}
+
+	/**
+	 * @param string $authToken
+	 * @return array
+	 */
+	public function getProfileData(string $authToken): array
+	{
+		return $this->profile->getProfileData($authToken);
 	}
 }

@@ -6,6 +6,7 @@ namespace CoreApiClient\handlers\user;
 use CoreApiClient\handlers\BaseHandler;
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
 
 /**
  * Class Registration
@@ -28,7 +29,7 @@ class Registration extends BaseHandler
 
 	/**
 	 * @param Model $model
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return bool
 	 */
 	public function createAccount(Model $model): bool
@@ -39,7 +40,7 @@ class Registration extends BaseHandler
 
 	/**
 	 * @param Model $model
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return bool
 	 */
 	public function activateAccount(Model $model): bool
@@ -50,7 +51,7 @@ class Registration extends BaseHandler
 
 	/**
 	 * @param Model $model
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return bool
 	 */
 	public function setPassword(Model $model): bool

@@ -5,6 +5,7 @@ namespace CoreApiClient\handlers;
 
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
 
 /**
  * Class History

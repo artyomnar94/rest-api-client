@@ -7,6 +7,7 @@ use CoreApiClient\handlers\BaseHandler;
 use CoreApiClient\RequestHelper;
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\NotFoundHttpException;
 
 /**
  * Class Category
@@ -14,7 +15,7 @@ use yii\base\Model;
  */
 class Category extends BaseHandler
 {
-	private const ENTITY = 'category';
+	private const ENTITY = 'service-category';
 
 	/**
 	 * Category constructor.
@@ -29,7 +30,7 @@ class Category extends BaseHandler
 
 	/**
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getAll(array $params = []): array
@@ -39,7 +40,7 @@ class Category extends BaseHandler
 
 	/**
 	 * @param string $categoryId
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getOne(string $categoryId): array
@@ -49,7 +50,7 @@ class Category extends BaseHandler
 
 	/**
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function search(array $params = []): array

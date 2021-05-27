@@ -6,6 +6,7 @@ namespace CoreApiClient\handlers\user;
 use CoreApiClient\handlers\BaseHandler;
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
 
 /**
  * Class Security
@@ -29,7 +30,7 @@ class Security extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return bool
 	 */
 	public function changeEmail(Model $model, string $authToken): bool
@@ -41,7 +42,7 @@ class Security extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return bool
 	 */
 	public function confirmEmail(Model $model, string $authToken): bool
@@ -53,7 +54,7 @@ class Security extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return bool
 	 */
 	public function changePassword(Model $model, string $authToken): bool

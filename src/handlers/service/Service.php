@@ -7,6 +7,8 @@ use CoreApiClient\handlers\BaseHandler;
 use CoreApiClient\RequestHelper;
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
+use yii\web\NotFoundHttpException;
 
 /**
  * Class Service
@@ -47,7 +49,7 @@ class Service extends BaseHandler
 
 	/**
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getAll(array $params = []): array
@@ -57,7 +59,7 @@ class Service extends BaseHandler
 
 	/**
 	 * @param string $serviceAttribute - service id or name
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getOne(string $serviceAttribute): array
@@ -67,7 +69,7 @@ class Service extends BaseHandler
 
 	/**
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function search(array $params = []): array
@@ -79,7 +81,7 @@ class Service extends BaseHandler
 	 * @param string $authToken
 	 * @param string $serviceAttribute
 	 * @param float $amount
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array|null
 	 */
 	public function commission(string $authToken, string $serviceAttribute, float $amount)
@@ -89,12 +91,12 @@ class Service extends BaseHandler
 		if ($response->isOk) {
 			return $response->data;
 		}
-		throw new yii\web\UnprocessableEntityHttpException();
+		throw new UnprocessableEntityHttpException();
 	}
 
 	/**
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getCategoryList(array $params = []): array
@@ -104,7 +106,7 @@ class Service extends BaseHandler
 
 	/**
 	 * @param string $categoryId
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getCategory(string $categoryId)
@@ -114,7 +116,7 @@ class Service extends BaseHandler
 
 	/**
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function findCategory(array $params = [])
@@ -124,7 +126,7 @@ class Service extends BaseHandler
 
 	/**
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getFieldList(array $params)
@@ -134,7 +136,7 @@ class Service extends BaseHandler
 
 	/**
 	 * @param string $fieldId
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getField(string $fieldId)
@@ -145,7 +147,7 @@ class Service extends BaseHandler
 	/**
 	 * @param string $authToken
 	 * @param array $params
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getTopList(string $authToken, array $params = [])
@@ -156,7 +158,7 @@ class Service extends BaseHandler
 	/**
 	 * @param string $serviceId
 	 * @param string $authToken
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return array
 	 */
 	public function getTopById(string $serviceId, string $authToken): array
@@ -167,7 +169,7 @@ class Service extends BaseHandler
 	/**
 	 * @param string $serviceId
 	 * @param string $authToken
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return bool
 	 */
 	public function newTop(string $serviceId, string $authToken): bool
@@ -178,7 +180,7 @@ class Service extends BaseHandler
 	/**
 	 * @param string $serviceId
 	 * @param string $authToken
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return bool
 	 */
 	public function editTop(string $serviceId, string $authToken): bool
@@ -189,7 +191,7 @@ class Service extends BaseHandler
 	/**
 	 * @param string $serviceId
 	 * @param string $authToken
-	 * @throws \yii\web\NotFoundHttpException
+	 * @throws NotFoundHttpException
 	 * @return bool
 	 */
 	public function deleteTop(string $serviceId, string $authToken): bool

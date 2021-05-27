@@ -6,7 +6,12 @@ namespace CoreApiClient\handlers;
 use CoreApiClient\RequestHelper;
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
 
+/**
+ * Class Payment
+ * @package CoreApiClient\handlers
+ */
 class Payment extends BaseHandler
 {
 	private const ENTITY = 'payment';
@@ -25,7 +30,7 @@ class Payment extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function check(Model $model, string $authToken): ?array
@@ -36,7 +41,7 @@ class Payment extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function payFromCard(Model $model, string $authToken): array
@@ -47,7 +52,7 @@ class Payment extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function payFromWallet(Model $model, string $authToken): array
@@ -58,7 +63,7 @@ class Payment extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function payFromMobile(Model $model, string $authToken): array
@@ -69,7 +74,7 @@ class Payment extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function approvePayFromMobile(Model $model, string $authToken): array
@@ -80,7 +85,7 @@ class Payment extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function transferFromCard(Model $model, string $authToken): array
@@ -91,7 +96,7 @@ class Payment extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function transferToCard(Model $model, string $authToken): array
@@ -162,7 +167,7 @@ class Payment extends BaseHandler
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function createOperation(Model $model, string $authToken): array

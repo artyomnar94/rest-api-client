@@ -5,6 +5,7 @@ namespace CoreApiClient\handlers;
 
 use yii\httpclient\Client;
 use yii\base\Model;
+use yii\web\UnprocessableEntityHttpException;
 
 /**
  * Class Card
@@ -27,7 +28,7 @@ class Card extends BaseHandler
 
 	/**
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function getAll(string $authToken): array
@@ -38,7 +39,7 @@ class Card extends BaseHandler
 	/**
 	 * @param string $authToken
 	 * @param string $cardId
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function getOne(string $authToken, string $cardId): array
@@ -71,7 +72,7 @@ class Card extends BaseHandler
 	 * @param Model $model
 	 * @param string $authToken
 	 * @param array $params
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array
 	 */
 	public function approve(Model $model, string $authToken, array $params = []): array
@@ -80,7 +81,7 @@ class Card extends BaseHandler
 		if ($response->isOk) {
 			return $response->data;
 		}
-		throw new yii\web\UnprocessableEntityHttpException();
+		throw new UnprocessableEntityHttpException();
 	}
 
 	/**
@@ -96,7 +97,7 @@ class Card extends BaseHandler
 	/**
 	 * @param string $authToken
 	 * @param array $params
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return string
 	 */
 	public function nativeWrapper(string $authToken, array $params = []): string
@@ -105,13 +106,13 @@ class Card extends BaseHandler
 		if ($response->isOk) {
 			return $response->data;
 		}
-		throw new yii\web\UnprocessableEntityHttpException();
+		throw new UnprocessableEntityHttpException();
 	}
 
 	/**
 	 * @param Model $model
 	 * @param string $authToken
-	 * @throws yii\web\UnprocessableEntityHttpException
+	 * @throws UnprocessableEntityHttpException
 	 * @return array|null
 	 */
 	public function sendAuthCode(Model $model, string $authToken): ?array
